@@ -4,6 +4,7 @@ const passport = require("passport");
 const session = require("express-session");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const path = require("path");
+const mongoose=require("connect-mongo");
 
 const app = express();
 app.set("view engine", "ejs");
@@ -13,6 +14,9 @@ app.use(session({
     secret: "google12auth56",
     resave: false,
     saveUninitialized: true,
+    store: mongoose.create({
+        mongoUrl: 'mongodb://localhost:27017/google', 
+    })
 }));
 
 app.use(passport.initialize());
