@@ -6,8 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Google sign up</h1>
-    <a href="/auth/google">Login in google</a>
-    <a href="/data">Data</a>
+    <h1>Data</h1>
+    <%for(let da of data){%>
+        <h1><%=da.name%></h1>
+        <h2><%=da.email%></h2>
+        <%}%>
 </body>
 </html>
